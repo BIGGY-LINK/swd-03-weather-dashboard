@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111a35">
+    <meta name="description" content="A simple, beautiful weather dashboard for your favourite places.">
+    <title>BIGGY LINK — Weather dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="BIGGY LINK home">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>BIGGY LINK</span>
+        </a>
+        <div class="search-wrap">
+          <form class="search-form" id="search-form" role="search">
+            <label class="sr-only" for="city-search">Search for a city</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="city-search" name="city" type="search" placeholder="Search a city..." autocomplete="off" aria-controls="city-results" aria-expanded="false" required>
+            <button type="submit">Search</button>
+          </form>
+          <div class="city-results" id="city-results" role="listbox" aria-label="Matching locations" hidden></div>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true">☼</span>
+          <span class="theme-toggle-label">Light mode</span>
+        </button>
+        <div class="topbar-note"><span class="live-dot" aria-hidden="true"></span> Your daily forecast</div>
+      </header>
+
+      <main class="dashboard">
+        <section class="main-column" aria-label="Weather overview">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+              <h1>Good morning<span class="heading-dot">.</span></h1>
+            </div>
+            <div class="weather-actions">
+              <p class="today-label" id="today-label"></p>
+              <button class="location-button" id="location-button" type="button">
+                <span aria-hidden="true">⌖</span> Use my location
+              </button>
+            </div>
+          </div>
+
+          <div class="status-message" id="status-message" role="status" aria-live="polite" hidden></div>
+          <div class="status-message status-error" id="error-message" role="alert" hidden></div>
+
+          <article class="current-card glass-card" aria-labelledby="city-name">
+            <div class="current-copy">
+              <div class="location-line">
+                <span class="location-pin" aria-hidden="true">⌖</span>
+                <span id="location-label">Seattle, United States</span>
+              </div>
+              <h2 id="city-name">Seattle</h2>
+              <p class="condition" id="condition">Partly cloudy</p>
+              <div class="temperature" id="temperature">18<span>°</span></div>
+              <div class="weather-meta">
+                <div>
+                  <span class="meta-label">WIND</span>
+                  <strong id="wind-speed">12 <small>km/h</small></strong>
+                </div>
+                <span class="meta-divider" aria-hidden="true"></span>
+                <div>
+                  <span class="meta-label">HUMIDITY</span>
+                  <strong id="humidity">--%</strong>
+                </div>
+                <span class="meta-divider" aria-hidden="true"></span>
+                <div>
+                  <span class="meta-label">LOCAL TIME</span>
+                  <strong id="local-time">10:42 AM</strong>
+                </div>
+              </div>
+            </div>
+            <div class="current-art" aria-hidden="true">
+              <span class="sun-halo"></span>
+              <span class="weather-emoji" id="weather-emoji">⛅</span>
+              <span class="art-caption">A little sunshine<br>goes a long way</span>
+            </div>
+            <button class="favorite-toggle" id="favorite-toggle" type="button" aria-label="Add Seattle to favourites" aria-pressed="false">
+              <span aria-hidden="true">☆</span>
+            </button>
+          </article>
+
+          <section class="forecast-section" aria-labelledby="forecast-title">
+            <div class="section-title-row">
+              <div>
+                <p class="eyebrow">PLAN AHEAD</p>
+                <h2 id="forecast-title">7-day forecast</h2>
+              </div>
+              <div class="unit-toggle" role="group" aria-label="Temperature unit">
+                <button type="button" class="unit-button" data-unit="C" aria-pressed="true">°C</button>
+                <button type="button" class="unit-button" data-unit="F" aria-pressed="false">°F</button>
+              </div>
+            </div>
+            <div class="forecast-grid" id="forecast-grid" aria-label="Seven day forecast"></div>
+          </section>
+        </section>
+
+        <aside class="sidebar" aria-labelledby="favorites-title">
+          <div class="sidebar-heading">
+            <div>
+              <p class="eyebrow">YOUR PLACES</p>
+              <h2 id="favorites-title">Favourites<span class="heading-dot">.</span></h2>
+            </div>
+            <span class="count-badge" id="favorite-count">0</span>
+          </div>
+          <p class="sidebar-intro">Keep an eye on the places you care about.</p>
+          <ul class="favorites-list" id="favorites-list"></ul>
+          <div class="sidebar-tip">
+            <span class="tip-icon" aria-hidden="true">✦</span>
+            <p><strong>A little tip</strong><br>Tap the star on a city to save it here for later.</p>
+          </div>
+          <p class="data-note"><span aria-hidden="true">◷</span> Weather data · Open-Meteo</p>
+        </aside>
+      </main>
+      <footer class="footer"><span>Made for brighter mornings.</span><span>BIGGY LINK <span aria-hidden="true">✳</span> Weather dashboard</span></footer>
+    </div>
+  </body>
+</html>
