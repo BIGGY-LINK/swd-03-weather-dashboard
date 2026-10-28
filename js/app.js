@@ -388,7 +388,7 @@ async function initializeDashboard() {
     console.error("Could not check the location permission.", error);
   }
 
-  showCity("Seattle", false);
+  showCity("Bida", false);
 }
 
 renderToday();
